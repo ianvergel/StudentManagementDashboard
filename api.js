@@ -3,24 +3,24 @@ the id (based on current date + increment to let id be unique),
 firstName, lastName, and email.
  */
 const mockStudentDB = [
-  {
-    id: Date.now() + 1,
-    firstName: "Asta",
-    lastName: "WizardKing",
-    email: "asta@clover-kingdom.com",
-  },
-  {
-    id: Date.now() + 2,
-    firstName: "Yuno",
-    lastName: "Grinberryall",
-    email: "yuno@clover-kingdom.com",
-  },
-  {
-    id: Date.now() + 3,
-    firstName: "Yami",
-    lastName: "Sukehiro",
-    email: "yami@clover-kingdom.com",
-  },
+  //   {
+  //     id: Date.now() + 1,
+  //     firstName: "Asta",
+  //     lastName: "WizardKing",
+  //     email: "asta@clover-kingdom.com",
+  //   },
+  //   {
+  //     id: Date.now() + 2,
+  //     firstName: "Yuno",
+  //     lastName: "Grinberryall",
+  //     email: "yuno@clover-kingdom.com",
+  //   },
+  //   {
+  //     id: Date.now() + 3,
+  //     firstName: "Yami",
+  //     lastName: "Sukehiro",
+  //     email: "yami@clover-kingdom.com",
+  //   },
 ];
 
 /* Returns the entire mockStudentDB object array,
