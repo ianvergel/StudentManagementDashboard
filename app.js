@@ -15,12 +15,10 @@ putting one entire object details one per row. */
 const renderTable = (dataArray) => {
   studentTableBody.innerHTML = "";
 
-  if (dataArray.length === 0) {
+  if (!dataArray || dataArray.length === 0) {
     studentTableBody.innerHTML = `
       <tr>
-        <td colspan="4" style="text-align: center">
-        No student records found.
-        </td>
+        <td colspan="4" style="text-align: center;">No student records found.</td>
       </tr>
     `;
     return;
@@ -29,12 +27,22 @@ const renderTable = (dataArray) => {
   dataArray.forEach((student, index) => {
     const row = document.createElement("tr");
 
-    row.innerHTML = `
-      <td>${index + 1}</td>
-      <td>${student.firstName}</td>
-      <td>${student.lastName}</td>
-      <td>${student.email}</td>
-    `;
+    const tdIndex = document.createElement("td");
+    tdIndex.textContent = index + 1;
+
+    const tdFirstName = document.createElement("td");
+    tdFirstName.textContent = student.firstName;
+
+    const tdLastName = document.createElement("td");
+    tdLastName.textContent = student.lastName;
+
+    const tdEmail = document.createElement("td");
+    tdEmail.textContent = student.email;
+
+    row.appendChild(tdIndex);
+    row.appendChild(tdFirstName);
+    row.appendChild(tdLastName);
+    row.appendChild(tdEmail);
 
     studentTableBody.appendChild(row);
   });
