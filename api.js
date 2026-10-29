@@ -1,6 +1,8 @@
-/*Prepopulates the array with 3 student details returning
-the id (based on current date + increment to let id be unique),
-firstName, lastName, and email.
+/**
+ * In-memory data store containing mock student records.
+ * Can be pre-populated with initial student objects if needed.
+ * @type {Array<{id: number, firstName: string,
+ * lastName: string, email: string}>}
  */
 const mockStudentDB = [
   //   {
@@ -23,14 +25,23 @@ const mockStudentDB = [
   //   },
 ];
 
-/* Returns the entire mockStudentDB object array,
-functioning like a GET function. */
+/**
+ * Retrieves all registered student records from the mock database.
+ * @returns {Array<{id: number, firstName: string,
+ * lastName: string, email: string}>} The array of student objects.
+ */
 export function getStudentsAPI() {
   return mockStudentDB;
 }
 
-/* Adds new student data, including its own id, inside the mockStudentDB.
-Also returns the data of the newStudent.*/
+/**
+ * Creates a new student record with a unique timestamp ID
+ * and appends it to the database.
+ * @param {{firstName: string, lastName: string, email: string}} newStudentData
+ * - The student details to save.
+ * @returns {{id: number, firstName: string, lastName: string, email: string}}
+ * The newly created student object.
+ */
 export function addStudentAPI(newStudentData) {
   const savedStudent = {
     id: Date.now(),

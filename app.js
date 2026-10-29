@@ -1,24 +1,30 @@
 import { getStudentsAPI, addStudentAPI } from "./api.js";
 
-/*Initializes a localStudent array to store 
-the object data when getStudentAPI() is called.*/
+/**
+ * Local state array to hold student objects retrieved from the API.
+ * @type {Array<Object>}
+ */
 let localStudents = [];
 
-/* Initializes a DOM to allow modification of text, style and value*/
+// Cache DOM element references for form and table body
 const studentForm = document.getElementById("studentForm");
 const studentTableBody = document.getElementById("studentTableBody");
 
-/* Checks if data array has elements.  
-Displays the data from localStudent array to the table dynamically.
-Traverses the array collections in dataArray using forEach and 
-putting one entire object details one per row. */
+/**
+ * Clears and re-renders the student table
+ * body using safe textContent DOM creation.
+ * @param {Array<Object>} dataArray - Array of student objects
+ * containing firstName, lastName, and email.
+ */
 const renderTable = (dataArray) => {
   studentTableBody.innerHTML = "";
 
   if (!dataArray || dataArray.length === 0) {
     studentTableBody.innerHTML = `
       <tr>
-        <td colspan="4" style="text-align: center;">No student records found.</td>
+        <td colspan="4" style="text-align: center;">
+        No student records found.
+        </td>
       </tr>
     `;
     return;
@@ -48,11 +54,10 @@ const renderTable = (dataArray) => {
   });
 };
 
-/* Creates an event handler that grabs the inputs,
-saves it as an student object using the
-addStudentAPI and pushing it to localStudent array. 
-Updates the display with the new Student Data 
-and refreshes the form removing the earlier inputs. */
+/**
+ * Handles form submission: validates inputs, persists the record via API,
+ * updates local state, and refreshes the UI view.
+ */
 studentForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -83,11 +88,13 @@ studentForm.addEventListener("submit", (event) => {
   studentForm.reset();
 });
 
-//Initializes application data and renders the view.
+/**
+ * Fetches initial student data from the API and performs the first UI render.
+ */
 const initApp = () => {
   localStudents = [...getStudentsAPI()];
   renderTable(localStudents);
 };
 
-//Starts the application
+// Start the application lifecycle
 initApp();
