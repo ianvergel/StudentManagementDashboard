@@ -2,7 +2,7 @@ import { getStudentsAPI, addStudentAPI } from "./api.js";
 
 console.log("======================== ACTIVITY 1 ========================");
 console.log("---------- Test Case 1 ----------");
-console.log(getStudentsAPI());
+console.log("Initial DB State:", getStudentsAPI());
 
 console.log("\n---------- Test Case 2 ----------");
 const newStudent = addStudentAPI({
@@ -11,8 +11,8 @@ const newStudent = addStudentAPI({
   email: "luck@clover-kingdom.com",
 });
 
-console.log("Newly Added Student:", newStudent);
+console.log("Returned Saved Object:", newStudent);
 
 console.log("\n---------- Test Case 3 ----------");
-console.log(getStudentsAPI());
+console.log("Updated DB State:", getStudentsAPI());
 console.log("============================================================");

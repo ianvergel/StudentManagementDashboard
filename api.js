@@ -1,4 +1,8 @@
-let mockStudentDB = [
+/*Prepopulates the array with 3 student details returning
+the id (based on current date + increment to let id be unique),
+firstName, lastName, and email.
+ */
+const mockStudentDB = [
   {
     id: Date.now() + 1,
     firstName: "Asta",
@@ -19,10 +23,14 @@ let mockStudentDB = [
   },
 ];
 
+/* Returns the entire mockStudentDB object array,
+functioning like a GET function. */
 export function getStudentsAPI() {
   return mockStudentDB;
 }
 
+/* Adds new student data, including its own id, inside the mockStudentDB.
+Also returns the data of the newStudent.*/
 export function addStudentAPI(newStudentData) {
   const savedStudent = {
     id: Date.now(),
